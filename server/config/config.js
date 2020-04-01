@@ -24,7 +24,7 @@ let urlDb;
 if (process.env.NODE_ENV === 'dev') {
     urlDb = 'mongodb://localhost:27017/medsi_sativa';
 } else {
-    urlDb = 'mongodb+srv://admin:qwerty123@cluster0-aw5st.mongodb.net/prueba';
+    urlDb = process.env.MONGO_URI;
 }
 
 process.env.URLDB = urlDb;
