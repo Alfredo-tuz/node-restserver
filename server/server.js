@@ -14,10 +14,13 @@ app.use(bodyParser.urlencoded({ extended: false })); //middlewares
 
 app.use(bodyParser.json()); //middlewares
 
-app.use(require('./routes/usuario'));
+//configuración global de rutas
+app.use(require('./routes/index'));
 
-mongoose.connect('mongodb+srv://admin:qwerty123@cluster0-aw5st.mongodb.net/prueba', {
+mongoose.connect(process.env.URLDB, {
     useNewUrlParser: true,
+    user: Username,
+    pass: UserPwd,
     useCreateIndex: true,
     useUnifiedTopology: true
 }, (err, res) => {
@@ -26,7 +29,6 @@ mongoose.connect('mongodb+srv://admin:qwerty123@cluster0-aw5st.mongodb.net/prueb
     console.log("Base de datos online");
 });
 
-mongoose.set('useCreateIndex', true);
 
 
 app.listen(process.env.PORT, () => {
