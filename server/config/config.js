@@ -48,4 +48,11 @@ if (process.env.NODE_ENV === 'dev') {
 
 process.env.URLDB = urlDb;
 
+/**
+ * Google client_id
+ * 
+ */
+process.env.CLIENT_ID = process.env.CLIENT_ID || "159560010594-r1jggnpk50jfn0ie4k72ojipl9tsqtm9.apps.googleusercontent.com";
+
+
 //localhost:27017/prueba

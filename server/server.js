@@ -3,6 +3,7 @@ require('./config/config');
 
 const mongoose = require('mongoose');
 const express = require('express');
+const path = require('path');
 const app = express();
 
 let Username = "developer";
@@ -13,6 +14,9 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: false })); //middlewares
 
 app.use(bodyParser.json()); //middlewares
+
+//Habilitar la carpeta public
+app.use(express.static(path.resolve(__dirname, "../public")));
 
 //configuración global de rutas
 app.use(require('./routes/index'));
